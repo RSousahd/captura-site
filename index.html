@@ -82,18 +82,26 @@
   </div>
 </section>
 
+<section id="contato" class="section">
+  <div class="container">
+    <h2>Fale Conosco</h2>
+    <form id="form-contato">
+      <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+      <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+      <input type="text" id="telefone" name="telefone" placeholder="Seu telefone (WhatsApp)" required>
+      <select id="servico" name="servico" required>
+        <option value="">Selecione um serviço</option>
+        <option value="Pedreiro">Pedreiro</option>
+        <option value="Encanador">Encanador</option>
+        <option value="Eletricista">Eletricista</option>
+        <option value="Pintor">Pintor</option>
+      </select>
+      <textarea id="mensagem" name="mensagem" placeholder="Descreva sua necessidade..." required></textarea>
+      <button type="submit" class="btn">Enviar para WhatsApp</button>
+    </form>
+  </div>
+</section>
 
-  <section id="contato" class="section">
-    <div class="container">
-      <h2>Fale Conosco</h2>
-      <form id="form-contato">
-        <input type="text" name="nome" placeholder="Seu nome" required>
-        <input type="email" name="email" placeholder="Seu e-mail" required>
-        <textarea name="mensagem" placeholder="Digite sua mensagem" required></textarea>
-        <button type="submit" class="btn">Enviar</button>
-      </form>
-    </div>
-  </section>
 
   <footer class="footer">
     <div class="container">
@@ -104,29 +112,27 @@
   document.getElementById("form-contato").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    const nome = document.getElementById("nome").value;
-    const email = document.getElementById("email").value;
-    const telefone = document.getElementById("telefone").value;
+    const nome = document.getElementById("nome").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const telefone = document.getElementById("telefone").value.trim();
     const servico = document.getElementById("servico").value;
-    const mensagem = document.getElementById("mensagem").value;
+    const mensagem = document.getElementById("mensagem").value.trim();
 
     const texto = `*Novo Pedido de Serviço*%0A` +
-                  `*Nome:* ${nome}%0A` +
-                  `*Email:* ${email}%0A` +
-                  `*Telefone:* ${telefone}%0A` +
-                  `*Serviço:* ${servico}%0A` +
-                  `*Mensagem:* ${mensagem}`;
+                  `👤 *Nome:* ${nome}%0A` +
+                  `📧 *Email:* ${email}%0A` +
+                  `📱 *Telefone:* ${telefone}%0A` +
+                  `🛠️ *Serviço:* ${servico}%0A` +
+                  `📝 *Mensagem:* ${mensagem}`;
 
-    const numeroWhatsApp = "5562985558320"; // ← Substitua com seu número (DDI+DDD+Número)
-    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
+    const numeroWhatsApp = "5562985558320"; // DDI + DDD + número sem espaço ou traço
+    const url = `https://wa.me/${numeroWhatsApp}?text=${texto}`;
 
-    // Abre o WhatsApp em uma nova aba
     window.open(url, "_blank");
-
-    // Opcional: limpa o formulário
     document.getElementById("form-contato").reset();
   });
 </script>
+
 
 
   <script src="script.js"></script>
