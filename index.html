@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Construserv - Serviços de Construção Civil</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Construserv</h1>
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="#home">Início</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#profissionais">Profissionais</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <section id="home" class="hero">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h2>Encontre Profissionais da Construção com Segurança e Agilidade</h2>
+      <p>Pedreiros, encanadores, eletricistas, pintores e muito mais. Tudo em um só lugar.</p>
+      <a href="#servicos" class="btn">Solicite um Orçamento</a>
+    </div>
+  </div>
+</section>
+
+
+  <section id="servicos" class="section">
+    <div class="container">
+      <h2>Serviços Populares</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Pedreiro</h3>
+          <p>Construção, reformas, alvenaria e acabamentos.</p>
+        </div>
+        <div class="card">
+          <h3>Encanador</h3>
+          <p>Instalação e manutenção hidráulica residencial e predial.</p>
+        </div>
+        <div class="card">
+          <h3>Eletricista</h3>
+          <p>Instalações elétricas, quadro de força, tomadas e iluminação.</p>
+        </div>
+        <div class="card">
+          <h3>Pintor</h3>
+          <p>Pintura residencial, grafiato, textura e impermeabilização.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+<section id="profissionais" class="section destaque">
+  <div class="container">
+    <h2>Especialistas em Soluções Construtivas</h2>
+    <div class="grid">
+      <div class="pro-card">
+        <div class="icon"><i class="fas fa-tools"></i></div>
+        <h3>Experiência Comprovada</h3>
+        <p>Profissionais com histórico de excelência e dezenas de obras entregues com qualidade.</p>
+      </div>
+      <div class="pro-card">
+        <div class="icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>Segurança e Confiabilidade</h3>
+        <p>Todos os prestadores passam por avaliação e seguem rigorosos padrões de segurança.</p>
+      </div>
+      <div class="pro-card">
+        <div class="icon"><i class="fas fa-clock"></i></div>
+        <h3>Agilidade Garantida</h3>
+        <p>Serviços executados no tempo certo, com acompanhamento em tempo real pelo cliente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section id="contato" class="section">
+    <div class="container">
+      <h2>Fale Conosco</h2>
+      <form id="form-contato">
+        <input type="text" name="nome" placeholder="Seu nome" required>
+        <input type="email" name="email" placeholder="Seu e-mail" required>
+        <textarea name="mensagem" placeholder="Digite sua mensagem" required></textarea>
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Construserv. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+<script>
+  document.getElementById("form-contato").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const telefone = document.getElementById("telefone").value;
+    const servico = document.getElementById("servico").value;
+    const mensagem = document.getElementById("mensagem").value;
+
+    const texto = `*Novo Pedido de Serviço*%0A` +
+                  `*Nome:* ${nome}%0A` +
+                  `*Email:* ${email}%0A` +
+                  `*Telefone:* ${telefone}%0A` +
+                  `*Serviço:* ${servico}%0A` +
+                  `*Mensagem:* ${mensagem}`;
+
+    const numeroWhatsApp = "5562985558320"; // ← Substitua com seu número (DDI+DDD+Número)
+    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
+
+    // Abre o WhatsApp em uma nova aba
+    window.open(url, "_blank");
+
+    // Opcional: limpa o formulário
+    document.getElementById("form-contato").reset();
+  });
+</script>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
